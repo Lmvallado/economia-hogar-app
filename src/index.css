@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-bg: #15171b;
+  --color-card: #1d2026;
+  --color-card-alt: #1a1c21;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-strong: rgba(255, 255, 255, 0.1);
+  --color-text: #f2f1ee;
+  --color-muted: #7c818a;
+  --color-muted-2: #5b606a;
+  --color-accent: #b9ff66;
+  --color-expense: #ff8a65;
+  --color-income: #b9ff66;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
