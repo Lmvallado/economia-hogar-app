@@ -51,3 +51,27 @@ export interface GastoFijo {
   activo: boolean
   categoria?: Categoria | null
 }
+
+export interface Tarjeta {
+  id: string
+  hogar_id: string
+  nombre: string
+  color: string
+  activa: boolean
+  created_at: string
+}
+
+export interface CompraTarjeta {
+  id: string
+  hogar_id: string
+  tarjeta_id: string
+  usuario_id: string | null
+  descripcion: string
+  moneda: Moneda
+  monto_cuota: number
+  cuotas_totales: number
+  primer_mes: string // yyyy-mm-dd, día 1 del mes de la primera cuota
+  created_at: string
+  tarjeta?: Tarjeta | null
+  usuario?: Perfil | null
+}

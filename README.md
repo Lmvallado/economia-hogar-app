@@ -1,10 +1,8 @@
-# Economía Hogar — Etapa 1
+# Economía Hogar — Etapa 2
 
 App web (PWA) para administrar la economía del hogar entre dos personas: gastos e ingresos del mes,
-gastos por categoría y gastos fijos recurrentes. Estilo oscuro moderno, ARS y USD por separado.
-
-Esta es la **Etapa 1** del plan: gastos e ingresos + dashboard básico + gastos fijos. Tarjetas/cuotas,
-deudas y ahorro/metas quedan para las próximas etapas.
+gastos por categoría, gastos fijos recurrentes, y tarjetas de crédito con cuotas y proyección de
+próximos meses. Estilo oscuro moderno, ARS y USD por separado.
 
 **App publicada:** https://lmvallado.github.io/economia-hogar-app/
 
@@ -17,13 +15,19 @@ deudas y ahorro/metas quedan para las próximas etapas.
 - Listado de movimientos del mes, con quién lo cargó, y borrado.
 - Gastos fijos recurrentes (alquiler, expensas, seguros) con un botón para cargarlos todos de un
   solo toque cada mes, sin duplicar los que ya estén cargados.
+- **Tarjetas de crédito y cuotas (Etapa 2):** cargá tus tarjetas y las compras en cuotas (monto
+  total + cantidad de cuotas), y mirá cuánto vas a deber cada uno de los próximos 6 meses, en ARS
+  y USD por separado. No se mezcla automáticamente con los movimientos del mes — es una proyección
+  aparte, para saber qué se viene.
 - Instalable como app en el celular (PWA), con ícono propio.
 
 ## Base de datos (Supabase)
 
-Ya está creada y en uso: proyecto `economia-hogar`. El esquema completo (tablas, funciones y
-seguridad RLS) está en [`supabase/schema.sql`](./supabase/schema.sql) por si hay que recrearlo o
-revisarlo.
+Ya está creada y en uso: proyecto `economia-hogar`.
+
+- [`supabase/schema.sql`](./supabase/schema.sql) — esquema de la Etapa 1 (movimientos, gastos fijos).
+- [`supabase/002_tarjetas.sql`](./supabase/002_tarjetas.sql) — agregado de la Etapa 2 (tarjetas y
+  compras en cuotas). Es aditivo: se pega y ejecuta en el mismo proyecto, sin tocar lo anterior.
 
 ## Publicación (GitHub Pages, automática)
 
@@ -57,17 +61,18 @@ npm run dev
 ```
 src/
   context/       Sesión (Supabase Auth) y hogar actual
-  lib/           Cliente de Supabase, tipos, consultas a la base y formato de moneda
+  lib/           Cliente de Supabase, tipos, consultas a la base, formato de moneda y cálculo de cuotas
   components/    Shell (header + nav + botón +), modal de carga rápida, íconos
-  pages/         Login, Onboarding (crear/unirse a hogar), Dashboard, Movimientos, Gastos fijos, Perfil
+  pages/         Login, Onboarding (crear/unirse a hogar), Dashboard, Movimientos, Tarjetas,
+                 Gastos fijos, Perfil
 supabase/
-  schema.sql     Todo el esquema de base de datos + seguridad, para pegar en Supabase
+  schema.sql        Esquema de la Etapa 1
+  002_tarjetas.sql  Agregado de la Etapa 2 (tarjetas y cuotas)
 .github/workflows/
   deploy.yml     Build + publicación automática en GitHub Pages
 ```
 
 ## Próximas etapas (ya definidas en el documento de diseño)
 
-- Etapa 2: tarjetas de crédito y cuotas, con proyección de próximos meses.
 - Etapa 3: deudas y préstamos.
 - Etapa 4: ahorro y metas, y dashboard completo con más gráficos.

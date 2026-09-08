@@ -7,6 +7,7 @@ import Onboarding from './pages/Onboarding'
 import Dashboard from './pages/Dashboard'
 import Movimientos from './pages/Movimientos'
 import GastosFijos from './pages/GastosFijos'
+import Tarjetas from './pages/Tarjetas'
 import Perfil from './pages/Perfil'
 
 function Cargando() {
@@ -42,6 +43,7 @@ function Rutas() {
       <Route element={<Shell />}>
         <Route path="/" element={<Dashboard />} />
         <Route path="/movimientos" element={<Movimientos />} />
+        <Route path="/tarjetas" element={<Tarjetas />} />
         <Route path="/gastos-fijos" element={<GastosFijos />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />

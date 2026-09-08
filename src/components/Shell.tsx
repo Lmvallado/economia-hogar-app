@@ -1,12 +1,13 @@
 import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import { IconExchange, IconHome, IconPlus, IconRepeat } from './icons'
+import { IconCard, IconExchange, IconHome, IconPlus, IconRepeat } from './icons'
 import MovimientoModal from './MovimientoModal'
 import { useAuth } from '../context/AuthContext'
 
 const navItems = [
   { to: '/', label: 'Inicio', Icon: IconHome },
   { to: '/movimientos', label: 'Movimientos', Icon: IconExchange },
+  { to: '/tarjetas', label: 'Tarjetas', Icon: IconCard },
   { to: '/gastos-fijos', label: 'Gastos fijos', Icon: IconRepeat },
 ]
 

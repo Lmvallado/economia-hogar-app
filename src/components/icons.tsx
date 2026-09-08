@@ -61,6 +61,16 @@ export function IconClose({ size = 20, className }: IconProps) {
   )
 }
 
+export function IconCard({ size = 20, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" stroke="currentColor" className={className} {...base}>
+      <rect x="3" y="5.5" width="18" height="13" rx="2.2" />
+      <path d="M3 10h18" />
+      <path d="M6.5 14.5h4" />
+    </svg>
+  )
+}
+
 export function IconTrash({ size = 18, className }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" stroke="currentColor" className={className} {...base}>
